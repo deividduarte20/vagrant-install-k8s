@@ -1,4 +1,4 @@
-# Este projeto consiste em provisionar máquina virtual no Virtualbox com vagrant e gere configuração da máquina virtal com shell script
+# Este projeto consiste em provisionar máquina virtual no Virtualbox com vagrant e gerencia a configuração da máquina virtal com shell script
 
 ### Requisitos
 
