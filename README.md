@@ -20,7 +20,7 @@ cd vagrant-install-k8s
 vagrant up
 ```
 
-### Escolha a placa de rede que está sendo usada em seu dispositivo diitando o número correspondente a sua placa de rede
+### Escolha a placa de rede que está sendo usada em seu dispositivo digitando o número correspondente a sua placa de rede
 
 <img src=imagens/vagrant.jpg />
 
