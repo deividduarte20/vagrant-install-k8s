@@ -24,3 +24,12 @@ vagrant up
 
 <img src=imagens/vagrant.jpg />
 
+### Efetuei o login
+```bash
+vagrant ssh
+```
+
+### Para efetuar a listagem de nodes efetue com usuário root
+
+<img src=imagens/kubectl.jpg /> 
+
