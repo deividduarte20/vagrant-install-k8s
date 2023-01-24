@@ -6,17 +6,17 @@
 |---|-------|----------|
 
 ### Baixe o repositório
-````bash
+```bash
 git clone https://github.com/deividduarte20/vagrant-install-k8s.git
 ```
 
 ### Entre no diretório
-````bash
+```bash
 cd vagrant-install-k8s
 ```
 
 ### Execute o vagrant
-````bash
+```bash
 vagrant up
 ```
 
