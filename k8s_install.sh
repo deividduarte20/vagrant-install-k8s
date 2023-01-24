@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Criado por Deivid Duarte
+
 # Desativa Swap
 swapoff -a
 
