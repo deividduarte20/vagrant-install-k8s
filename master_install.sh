@@ -1,10 +1,8 @@
 #!/bin/bash
 
-<<<<<<< HEAD:master_install.sh
 ####---------------------Configurações de Swap-----------------------###
-=======
+
 # Criado por Deivid Duarte
->>>>>>> f9a1c2b7c7bc782f5e39a7a6d4ec9bb8bbf9e76b:k8s_install.sh
 
 # Desativa Swap
 swapoff -a
@@ -44,7 +42,7 @@ apt-get install containerd.io -y
 ####---------------------Instalação CNI---------------------------------###
 
 # Baixa repo cni plugin
-wget https://github.com/containernetworking/plugins/releases/download/v1.2.0/cniplugins-linux-amd64-v1.2.0.tgz
+wget https://github.com/containernetworking/plugins/releases/download/v1.2.0/cni-plugins-linux-amd64-v1.2.0.tgz
 
 # Cria diretório
 mkdir -p /opt/cni/bin
@@ -123,8 +121,5 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 # Instalação de driver de rede
 kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
-<<<<<<< HEAD:master_install.sh
 
 echo "Fim da instalação"
-=======
->>>>>>> f9a1c2b7c7bc782f5e39a7a6d4ec9bb8bbf9e76b:k8s_install.sh
