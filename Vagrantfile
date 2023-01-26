@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
     v.cpus = 2
   end
   # Executa shellscript para instalação do kubernetes
-  config.vm.provision :shell, path: "k8s_install.sh"
+  config.vm.provision :shell, path: "master_install.sh"
   end
 # wlp18s0 conf de rede para teste
  
