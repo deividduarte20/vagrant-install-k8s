@@ -38,7 +38,7 @@ apt-get install containerd.io -y
 ####---------------------Instalação CNI---------------------------------###
 
 # Baixa repo cni plugin
-wget https://github.com/containernetworking/plugins/releases/download/v1.2.0/cniplugins-linux-amd64-v1.2.0.tgz
+wget https://github.com/containernetworking/plugins/releases/download/v1.2.0/cni-plugins-linux-amd64-v1.2.0.tgz
 
 # Cria diretório
 mkdir -p /opt/cni/bin
