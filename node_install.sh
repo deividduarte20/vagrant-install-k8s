@@ -35,7 +35,25 @@ apt-get update
 # Instala última versão do containerD
 apt-get install containerd.io -y
 
-####---------------------Encerrado instalação do ContainerD-------------###
+####---------------------Instalação CNI---------------------------------###
+
+# Baixa repo cni plugin
+wget https://github.com/containernetworking/plugins/releases/download/v1.2.0/cniplugins-linux-amd64-v1.2.0.tgz
+
+# Cria diretório
+mkdir -p /opt/cni/bin
+
+# Descompacta cni plugin
+tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.2.0.tgz
+
+# Comenta parâmetro que desabilita cni
+sed -i 's/disabled_plugins/#disabled_plugins/g' /etc/containerd/config.toml
+
+# Adiciona parâmetro no final do arquivo
+echo "[plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
+SystemdCgroup = true" >> /etc/containerd/config.toml
+
+####---------------------Instalação do Kubeadm--------------------------###
 
 # Atualiza lista de repositório
 apt-get update
@@ -49,6 +67,7 @@ curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cl
 # Adiciona repositório no apt
 echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sources.list.d/kubernetes.list
 
+# Atualiza lista de repositórios
 apt-get update
 
 # Instala Kubelet, kubeadm e kubectl
@@ -81,20 +100,4 @@ rm /etc/containerd/config.toml
 # Reinicia serviço do containerd
 systemctl restart containerd
 
-# Inicializar master
-kubeadm init --kubernetes-version=1.26.0
-
-# Adiciona tempo de espera para executar o proximo comando
-sleep 100
-
-# Cria diretório em home do user vagrant
-mkdir -p $HOME/.kube
-
-# Copia configurações de atribuição de permissão
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-
-# Torna usuário vagrant proprietário do diretório .kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-
-# Instalação de driver de rede
-kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
+echo "Fim da instalação"
